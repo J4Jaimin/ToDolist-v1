@@ -30,17 +30,33 @@ h1 {
   border-bottom: 1px solid #F1F1F1;
 }
 
+.item:hover {
+  cursor: pointer;  
+}
+
+button:hover {
+  cursor: pointer;
+}
+
 .item:last-child {
   border-bottom: 0;
 }
 
-input:checked+p {
+input:checked+label {
   text-decoration: line-through;
   text-decoration-color: #A683E3;
 }
 
+label:hover {
+  cursor: pointer;
+}
+
 input[type="checkbox"] {
   margin: 20px;
+}
+
+input[type="checkbox"]:hover {
+  cursor: pointer;
 }
 
 p {
@@ -64,8 +80,6 @@ button {
   background-color: #A683E3;
   color: #fff;
   font-size: 30px;
-  padding-bottom: 6px;
-  border-width: 0;
 }
 
 input[type="text"] {
