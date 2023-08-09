@@ -8,18 +8,26 @@
 
     <div class="box">
         <% if(ToDoListItems.length !=0) { %>
-            <% for(var i=0; i<ToDoListItems.length; i++) { %>
-                <div class="item">
-                    <input type="checkbox" id=<%=ToDoListItems[i] %>>       
-                    <label for=<%=ToDoListItems[i] %>><p for="checked"> <%=ToDoListItems[i]%> </p></label>
-                </div>
-            <% } %>
-        <% } %>
 
-        <form class="item" action="/" method="post">
-            <input type="text" name="newItem" placeholder="New item.." autocomplete="off" autofocus="autofocus">
-            <button type="submit" name="listTitle" value=<%= listTitle%>>+</button>
-        </form>
+            <% ToDoListItems.forEach(element=> { %>
+                <form action="/delete" method="post">
+                    <div class="item">
+                        <input onchange="this.form.submit()" name="checkBox" value=<%=element._id %>
+                        type="checkbox" id=<%=element.TaskItem %>>
+                            <label for=<%=element.TaskItem %>><p>
+                                    <%=element.TaskItem%>
+                                </p></label>
+                            <input type="hidden" name="listName" value=<%=listTitle %>>
+                    </div>
+                </form>
+                <% }); %>
+                    <% } %>
+
+                        <form class="item" action="/" method="post">
+                            <input type="text" name="newItem" placeholder="New item.." autocomplete="off"
+                                autofocus="autofocus">
+                            <button type="submit" name="listname" value=<%-JSON.stringify(listTitle)%>>+</button>
+                        </form>
     </div>
 
-<%- include('footer'); -%>
+    <%- include('footer'); -%>
